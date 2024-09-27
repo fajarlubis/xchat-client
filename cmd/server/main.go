@@ -22,10 +22,7 @@ func main() {
 	r.Use(auth.NoCacheMiddleware()) // Middleware to prevent caching of responses
 
 	// Define routes
-	r.GET("/", auth.AuthMiddleware(), handlers.ShowHomePage) // Route for the home page
-	r.GET("/login", handlers.LoginHandler)                   // Logout route
-	r.GET("/logout", handlers.LogoutHandler)                 // Logout route
-	r.GET("/callback", handlers.CallbackHandler)             // OAuth2 callback route
+	r.GET("/", handlers.ShowHomePage) // Route for the home page
 
 	// Run the server
 	r.Run(os.Getenv("PORT"))
